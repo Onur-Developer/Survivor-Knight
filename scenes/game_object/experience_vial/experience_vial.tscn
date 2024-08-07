@@ -1,0 +1,150 @@
+[gd_scene load_steps=23 format=3 uid="uid://dfimnusi4udlp"]
+
+[ext_resource type="Script" path="res://scenes/game_object/experience_vial/experience_vial.gd" id="1_3rneh"]
+[ext_resource type="Texture2D" uid="uid://bxkvhgf70vc51" path="res://scenes/game_object/experience_vial/vial.png" id="2_kovxa"]
+[ext_resource type="PackedScene" uid="uid://dt0rgoshv8lg" path="res://scenes/component/random_auido_sounds_component.tscn" id="3_bj45j"]
+[ext_resource type="AudioStream" uid="uid://coouk4kk7ycdl" path="res://assets/sounds/impactGeneric_light_000.ogg" id="4_3dl8t"]
+[ext_resource type="AudioStream" uid="uid://djtmxlndoayey" path="res://assets/sounds/impactGeneric_light_001.ogg" id="5_8osj0"]
+[ext_resource type="AudioStream" uid="uid://davi2glo6dc5i" path="res://assets/sounds/impactGeneric_light_002.ogg" id="6_eddg6"]
+[ext_resource type="AudioStream" uid="uid://rtvfa3qkot8h" path="res://assets/sounds/impactGeneric_light_003.ogg" id="7_4xp72"]
+[ext_resource type="AudioStream" uid="uid://dj72hqfmtoba7" path="res://assets/sounds/impactGeneric_light_004.ogg" id="8_jmusl"]
+[ext_resource type="Texture2D" uid="uid://ns4jtoflvj5c" path="res://scenes/game_object/experience_vial/vialAnimation.png" id="9_84tol"]
+
+[sub_resource type="Animation" id="Animation_4ov4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q4ewp"]
+resource_name = "disappear"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlad7"]
+_data = {
+"RESET": SubResource("Animation_4ov4g"),
+"disappear": SubResource("Animation_q4ewp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tc2ln"]
+radius = 30.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo734"]
+atlas = ExtResource("9_84tol")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2dwn"]
+atlas = ExtResource("9_84tol")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsse2"]
+atlas = ExtResource("9_84tol")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owwvu"]
+atlas = ExtResource("9_84tol")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51x86"]
+atlas = ExtResource("9_84tol")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06p3x"]
+atlas = ExtResource("9_84tol")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1361"]
+atlas = ExtResource("9_84tol")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av35a"]
+atlas = ExtResource("9_84tol")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixuut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo734")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2dwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsse2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owwvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51x86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06p3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1361")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av35a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="ExperienceVial" type="Node2D"]
+script = ExtResource("1_3rneh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mlad7")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tc2ln")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_kovxa")
+
+[node name="RandomAuidoSoundsComponent" parent="." instance=ExtResource("3_bj45j")]
+sounds = Array[AudioStream]([ExtResource("4_3dl8t"), ExtResource("5_8osj0"), ExtResource("6_eddg6"), ExtResource("7_4xp72"), ExtResource("8_jmusl")])
+min_pitch = 0.9
+max_pitch = 1.1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ixuut")
+autoplay = "default"
+frame = 3
+frame_progress = 0.231255
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true

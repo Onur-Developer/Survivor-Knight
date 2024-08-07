@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://cf5nkgady8jqr"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ncli1"]
+[ext_resource type="Texture2D" uid="uid://bs5ss7t32pt2q" path="res://scenes/ability/wooden_sword_ability/wooden_sword.png" id="2_mgj5p"]
+
+[resource]
+script = ExtResource("1_ncli1")
+id = "wooden_sword"
+name = "Wooden Sword"
+max_quantity = 0
+description = "Create a wooden sword next to the player at specific time period."
+"ımage" = ExtResource("2_mgj5p")

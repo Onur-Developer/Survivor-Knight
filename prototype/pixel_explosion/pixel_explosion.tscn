@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://cr2posb0udpyd"]
+
+[ext_resource type="Shader" path="res://prototype/pixel_explosion/pixel_explosion.gdshader" id="1_6stej"]
+[ext_resource type="Texture2D" uid="uid://crspsdaxya1vt" path="res://scenes/game_object/wizard_enemy/wizard_enemy.png" id="2_l5n6m"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lvq5f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8ra3u"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_lvq5f")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vmcyw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_11viq"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_vmcyw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26gh4"]
+shader = ExtResource("1_6stej")
+shader_parameter/progress = 0.0
+shader_parameter/strength = 5.0
+shader_parameter/noise_tex_normal = SubResource("NoiseTexture2D_11viq")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_8ra3u")
+
+[node name="PixelExplosion" type="Sprite2D"]
+material = SubResource("ShaderMaterial_26gh4")
+texture = ExtResource("2_l5n6m")

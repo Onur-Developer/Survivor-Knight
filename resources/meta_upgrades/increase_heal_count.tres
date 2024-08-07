@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://dhejtrfv75p5c"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_7bq48"]
+
+[resource]
+script = ExtResource("1_7bq48")
+id = "heal_count"
+max_quantity = 2
+title = "Increase Heal Count"
+max_value = 100.0
+description = "Increases +1 to heal count you gained by heal vials."

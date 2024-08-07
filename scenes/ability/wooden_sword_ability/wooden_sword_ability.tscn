@@ -1,0 +1,199 @@
+[gd_scene load_steps=15 format=3 uid="uid://daqn72dmu22na"]
+
+[ext_resource type="Texture2D" uid="uid://bs5ss7t32pt2q" path="res://scenes/ability/wooden_sword_ability/wooden_sword.png" id="1_etulu"]
+[ext_resource type="Texture2D" uid="uid://cfav063rkhmox" path="res://scenes/ability/wooden_sword_ability/slash_effect.png" id="2_rh522"]
+[ext_resource type="PackedScene" uid="uid://c5mt23ottkc5y" path="res://scenes/component/hit_box_component.tscn" id="3_vs05y"]
+
+[sub_resource type="Animation" id="Animation_pxrng"]
+resource_name = "hit"
+length = 1.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordParentNode2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.11),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(15, -10), Vector2(15, -10), Vector2(20, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwordParentNode2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.11),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.5708, -0.523599, 2.61799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SwordParentNode2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.11),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.5, 1.5), Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwordParentNode2D/GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.69),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordParentNode2D/HitBoxComponent/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.67),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwordParentNode2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1kf1c"]
+resource_name = "out"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordParentNode2D/HitBoxComponent/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwordParentNode2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4xf8"]
+_data = {
+"hit": SubResource("Animation_pxrng"),
+"out": SubResource("Animation_1kf1c")
+}
+
+[sub_resource type="Curve" id="Curve_uqge4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0, Vector2(1, 180), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f3l7d"]
+curve = SubResource("Curve_uqge4")
+
+[sub_resource type="Gradient" id="Gradient_ukcw8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k5kvc"]
+gradient = SubResource("Gradient_ukcw8")
+
+[sub_resource type="Curve" id="Curve_235ll"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.504292, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.347368), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l3534"]
+curve = SubResource("Curve_235ll")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cv0c7"]
+particle_flag_disable_z = true
+spread = 180.0
+flatness = 0.5
+gravity = Vector3(0, -98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 750.0
+linear_accel_max = 1000.0
+radial_accel_min = 100.0
+radial_accel_max = 200.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_f3l7d")
+scale_min = 0.02
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_l3534")
+color_ramp = SubResource("GradientTexture1D_k5kvc")
+turbulence_influence_max = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u462r"]
+size = Vector2(25, 25)
+
+[node name="WoodenSwordAbility" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "out"
+libraries = {
+"": SubResource("AnimationLibrary_o4xf8")
+}
+
+[node name="SwordParentNode2D" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(15, -10)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Sprite2D" type="Sprite2D" parent="SwordParentNode2D"]
+texture = ExtResource("1_etulu")
+offset = Vector2(0, -7)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SwordParentNode2D"]
+show_behind_parent = true
+position = Vector2(-3.65379, -11.6736)
+rotation = 2.61799
+scale = Vector2(2, 2)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_cv0c7")
+texture = ExtResource("2_rh522")
+lifetime = 0.3
+one_shot = true
+preprocess = 0.01
+fixed_fps = 0
+interpolate = false
+
+[node name="HitBoxComponent" parent="SwordParentNode2D" instance=ExtResource("3_vs05y")]
+base_damage = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordParentNode2D/HitBoxComponent"]
+position = Vector2(-0.0967007, -10.1705)
+shape = SubResource("RectangleShape2D_u462r")
+disabled = true

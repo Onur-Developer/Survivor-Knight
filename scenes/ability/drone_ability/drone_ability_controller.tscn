@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d23q7sjydjfmk"]
+
+[ext_resource type="Script" path="res://scenes/ability/drone_ability/drone_ability_controller.gd" id="1_mglx0"]
+[ext_resource type="PackedScene" uid="uid://d0doehhwbvt6y" path="res://scenes/ability/drone_ability/drone.tscn" id="2_cnww1"]
+
+[node name="DroneAbilityController" type="Node"]
+script = ExtResource("1_mglx0")
+drone_scene = ExtResource("2_cnww1")

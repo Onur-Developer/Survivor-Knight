@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://byufhomy0f63r"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_ohi3s"]
+[ext_resource type="Texture2D" uid="uid://6errobbevobj" path="res://scenes/ability/flying_turret/flying_turret_icon.png" id="2_cjw6v"]
+
+[resource]
+script = ExtResource("1_ohi3s")
+id = "flying_turret_frequency"
+name = "Fire Frequency"
+max_quantity = 2
+description = "Increase flying turret fire frequency by +0.5 second."
+"ımage" = ExtResource("2_cjw6v")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://dieyornn3sxt8"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_pqov2"]
+[ext_resource type="Texture2D" uid="uid://b7ypqq0pqn2km" path="res://scenes/ability/drone_ability/drone.png" id="2_ktsbc"]
+
+[resource]
+script = ExtResource("1_pqov2")
+id = "drone_cooldown_time"
+name = "Cooldown Time"
+max_quantity = 1
+description = "Decrease cooldown time by -2 second to laser drone."
+"ımage" = ExtResource("2_ktsbc")

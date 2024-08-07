@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://devq1pgy586ui"]
+
+[ext_resource type="Texture2D" uid="uid://dj7f3hmoaj4vc" path="res://scenes/ability/anvil_ability/anvil.png" id="1_1vf16"]
+[ext_resource type="Script" path="res://scenes/ability/anvil_ability/anvil_ability.gd" id="1_w7klp"]
+[ext_resource type="PackedScene" uid="uid://c5mt23ottkc5y" path="res://scenes/component/hit_box_component.tscn" id="2_5i5kt"]
+[ext_resource type="PackedScene" uid="uid://bd0hqgdpjsu3u" path="res://scenes/ability/anvil_ability/anvil_particle.tscn" id="2_u14wh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_laq3j"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpb0c"]
+
+[node name="AnvilAbility" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.2
+script = ExtResource("1_w7klp")
+particle_explosion_scene = ExtResource("2_u14wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1vf16")
+offset = Vector2(0, -8)
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("2_5i5kt")]
+collision_mask = 8
+base_damage = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_laq3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_bpb0c")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://d4nr0kvj2i00g"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_gky3j"]
+[ext_resource type="Texture2D" uid="uid://civlebuafut4t" path="res://scenes/ability/flame_turret_ability/flame_turret_icon.png" id="2_x3jvb"]
+
+[resource]
+script = ExtResource("1_gky3j")
+id = "flame_turret_repair"
+name = "Flame Turret Repair Time"
+max_quantity = 1
+description = "Decrease -2 second by repair time to all flame turrets."
+"ımage" = ExtResource("2_x3jvb")

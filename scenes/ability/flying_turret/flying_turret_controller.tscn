@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://brhvrd8qg5cp1"]
+
+[ext_resource type="Script" path="res://scenes/ability/flying_turret/flying_turret_controller.gd" id="1_1t2du"]
+[ext_resource type="PackedScene" uid="uid://b5iofxhkhbuyf" path="res://scenes/ability/flying_turret/flying_turret.tscn" id="2_jiahr"]
+
+[node name="FlyingTurretController" type="Node"]
+script = ExtResource("1_1t2du")
+flying_turret_scene = ExtResource("2_jiahr")

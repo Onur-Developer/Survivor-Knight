@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcaflbb846mb2"]
+
+[ext_resource type="Script" path="res://scenes/ability/wooden_sword_ability/wooden_sword_ability_controller.gd" id="1_dwqsl"]
+[ext_resource type="PackedScene" uid="uid://daqn72dmu22na" path="res://scenes/ability/wooden_sword_ability/wooden_sword_ability.tscn" id="2_hbodk"]
+
+[node name="WoodenSwordAbilityController" type="Node"]
+script = ExtResource("1_dwqsl")
+wooden_sword_ability_scene = ExtResource("2_hbodk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

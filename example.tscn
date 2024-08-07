@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf1k6bacusawo"]
+
+[ext_resource type="PackedScene" uid="uid://d0doehhwbvt6y" path="res://scenes/ability/drone_ability/drone.tscn" id="1_cks70"]
+
+[node name="Example" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(420, 226)
+zoom = Vector2(2, 2)
+
+[node name="Drone" parent="." instance=ExtResource("1_cks70")]
+position = Vector2(417, 218)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dko2pxem7ebby"]
+
+[ext_resource type="Script" path="res://scenes/ability/flame_turret_ability/flame_turret_controller.gd" id="1_pghx8"]
+[ext_resource type="PackedScene" uid="uid://b5lr5e2c3mxoo" path="res://scenes/ability/flame_turret_ability/flame_turret.tscn" id="2_ojos7"]
+
+[node name="FlameTurretController" type="Node"]
+script = ExtResource("1_pghx8")
+flame_turret_scene = ExtResource("2_ojos7")

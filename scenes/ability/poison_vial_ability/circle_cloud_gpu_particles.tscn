@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7883sj4drkd6"]
+
+[ext_resource type="Texture2D" uid="uid://cuviqxexm2m1e" path="res://scenes/ability/anvil_ability/anvil_particle.png" id="1_3b423"]
+
+[sub_resource type="Gradient" id="Gradient_gxygb"]
+offsets = PackedFloat32Array(0, 0.326437, 0.657471, 1)
+colors = PackedColorArray(0.156863, 0.223529, 0.0196078, 1, 0.345098, 0.533333, 0, 1, 0.596078, 0.815686, 0.137255, 1, 0.694118, 0.858824, 0.188235, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m5llx"]
+gradient = SubResource("Gradient_gxygb")
+
+[sub_resource type="Curve" id="Curve_noqs7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.493562, 0.536842), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kn0op"]
+curve = SubResource("Curve_noqs7")
+
+[sub_resource type="Curve" id="Curve_sw3ga"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oyn3u"]
+curve = SubResource("Curve_sw3ga")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3fqc"]
+emission_shape = 1
+emission_sphere_radius = 60.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+flatness = 0.5
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_oyn3u")
+color_initial_ramp = SubResource("GradientTexture1D_m5llx")
+hue_variation_min = -0.2
+hue_variation_curve = SubResource("CurveTexture_kn0op")
+
+[node name="CircleCloudGPUParticles" type="GPUParticles2D"]
+modulate = Color(2, 2, 2, 1)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_r3fqc")
+texture = ExtResource("1_3b423")
+lifetime = 0.7
+fixed_fps = 0
+interpolate = false
+visibility_rect = Rect2(-43.7157, -46.4726, 86.6198, 88.621)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck7n4u33yvw1q"]
+
+[ext_resource type="Script" path="res://scenes/ability/poison_vial_ability/poison_vial_ability_controller.gd" id="1_6hp3n"]
+[ext_resource type="PackedScene" uid="uid://dfia88nbbflen" path="res://scenes/ability/poison_vial_ability/poison_vial_ability.tscn" id="2_sxvoq"]
+
+[node name="PoisonVialAbilityController" type="Node"]
+script = ExtResource("1_6hp3n")
+poison_vial_ability_scene = ExtResource("2_sxvoq")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://byyt3vjdamgge"]
+
+[ext_resource type="Script" path="res://scenes/component/heal_drop_component.gd" id="1_mgfy2"]
+[ext_resource type="PackedScene" uid="uid://ydlqrl3cu0ao" path="res://scenes/game_object/heal_vial/heal_vial.tscn" id="2_0mr22"]
+
+[node name="HealDropComponent" type="Node"]
+script = ExtResource("1_mgfy2")
+heal_experience = ExtResource("2_0mr22")

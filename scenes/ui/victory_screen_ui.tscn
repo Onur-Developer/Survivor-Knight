@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://sojm6vuydxi5"]
+
+[ext_resource type="Script" path="res://scenes/ui/victory_screen_ui.gd" id="1_myedd"]
+[ext_resource type="PackedScene" uid="uid://bejrytt4sq6bk" path="res://scenes/component/random_audio_stream_component.tscn" id="2_fco0b"]
+[ext_resource type="AudioStream" uid="uid://bn4cb0bcarrre" path="res://assets/sounds/click1.ogg" id="3_60ywu"]
+[ext_resource type="AudioStream" uid="uid://djt71niioh05v" path="res://assets/sounds/click2.ogg" id="4_oy3yv"]
+[ext_resource type="AudioStream" uid="uid://dldl8cv8fc17h" path="res://assets/sounds/click3.ogg" id="5_h6uan"]
+[ext_resource type="AudioStream" uid="uid://ccryse6ck03yl" path="res://assets/sounds/click4.ogg" id="6_gmvao"]
+[ext_resource type="AudioStream" uid="uid://tuk4rauso048" path="res://assets/sounds/click5.ogg" id="7_fklfm"]
+
+[node name="VictoryScreenUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_myedd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.17, 0.27, 0.5)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="VictoryLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "Victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 32
+text = "You won the game."
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="BacktoMainButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back to Main Menu"
+
+[node name="RandomButtonStreamComponent" parent="." instance=ExtResource("2_fco0b")]
+sounds = Array[AudioStream]([ExtResource("3_60ywu"), ExtResource("4_oy3yv"), ExtResource("5_h6uan"), ExtResource("6_gmvao"), ExtResource("7_fklfm")])
+
+[node name="RandomJingleStreamComponent" parent="." instance=ExtResource("2_fco0b")]

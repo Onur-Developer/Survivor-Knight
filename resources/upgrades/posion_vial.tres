@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://dajbnkgryuh46"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_r3mlk"]
+[ext_resource type="Texture2D" uid="uid://u82qck576bsb" path="res://scenes/ability/poison_vial_ability/poison_vial.png" id="2_3upai"]
+
+[resource]
+script = ExtResource("1_r3mlk")
+id = "poison_vial"
+name = "Poison Vial"
+max_quantity = 0
+description = "Create a poison vial which can damage and slow to enemies."
+"ımage" = ExtResource("2_3upai")

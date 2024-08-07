@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://mwksokm37r07"]
+
+[ext_resource type="Script" path="res://scenes/ability/axe_ability/axe_ability_controller.gd" id="1_iov1f"]
+[ext_resource type="PackedScene" uid="uid://dsnrqh43oytj8" path="res://scenes/ability/axe_ability/axe_ability.tscn" id="2_hy5u4"]
+
+[node name="AxeAbilityController" type="Node"]
+script = ExtResource("1_iov1f")
+axe_ability = ExtResource("2_hy5u4")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtdt5e5pxed6g"]
+
+[ext_resource type="AudioStream" uid="uid://n8t14cb1mto3" path="res://assets/sounds/Improv for Evil.mp3" id="1_hpcuv"]
+[ext_resource type="Script" path="res://scenes/autoload/audio_music_player.gd" id="2_56ij5"]
+
+[node name="AudioMusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_hpcuv")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_56ij5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

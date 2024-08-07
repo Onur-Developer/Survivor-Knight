@@ -1,0 +1,199 @@
+[gd_scene load_steps=29 format=3 uid="uid://b5iofxhkhbuyf"]
+
+[ext_resource type="Script" path="res://scenes/ability/flying_turret/flying_turret.gd" id="1_mko6a"]
+[ext_resource type="Texture2D" uid="uid://cjk4x614qvs4a" path="res://scenes/ability/flying_turret/Animation.png" id="2_sxryr"]
+[ext_resource type="PackedScene" uid="uid://cbmcjovstcsvm" path="res://prototype/electric_line/electric_line.tscn" id="3_fvdst"]
+[ext_resource type="PackedScene" uid="uid://dt0rgoshv8lg" path="res://scenes/component/random_auido_sounds_component.tscn" id="4_iwx77"]
+[ext_resource type="AudioStream" uid="uid://dsicetlcm1i4r" path="res://assets/sounds/laserLarge_000.ogg" id="5_esrh5"]
+[ext_resource type="AudioStream" uid="uid://c3hp5bnt37x7u" path="res://assets/sounds/laserLarge_001.ogg" id="6_j1mpa"]
+[ext_resource type="AudioStream" uid="uid://cjll72mdb1iqy" path="res://assets/sounds/laserLarge_002.ogg" id="7_iamem"]
+[ext_resource type="AudioStream" uid="uid://dpyp30t0w10gk" path="res://assets/sounds/laserLarge_003.ogg" id="8_8m2ec"]
+[ext_resource type="AudioStream" uid="uid://c484st3uxarva" path="res://assets/sounds/laserLarge_004.ogg" id="9_m80vg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32mx1"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juikg"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xv7y"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be0as"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoevx"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mshl4"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svpk8"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjsff"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0wwg"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irkse"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_655wm"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kem63"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb08n"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qkx7"]
+atlas = ExtResource("2_sxryr")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3iov3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32mx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juikg")
+}],
+"loop": true,
+"name": &"error",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xv7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be0as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoevx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mshl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svpk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjsff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0wwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irkse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_655wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kem63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb08n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qkx7")
+}],
+"loop": true,
+"name": &"ıdle",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_w3lqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlyingTurretAnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_1ox34"]
+resource_name = "default"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlyingTurretAnimatedSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.35, 0.65), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3vf3"]
+_data = {
+"RESET": SubResource("Animation_w3lqj"),
+"default": SubResource("Animation_1ox34")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj4gd"]
+radius = 50.0
+
+[node name="FlyingTurret" type="Node2D"]
+script = ExtResource("1_mko6a")
+electric = ExtResource("3_fvdst")
+
+[node name="FlyingTurretAnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3iov3")
+animation = &"ıdle"
+autoplay = "ıdle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_l3vf3")
+}
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_oj4gd")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 7.5
+one_shot = true
+
+[node name="ElectricLine" parent="." instance=ExtResource("3_fvdst")]
+points = PackedVector2Array(1, 7)
+
+[node name="RandomAuidoSoundsComponent" parent="." instance=ExtResource("4_iwx77")]
+sounds = Array[AudioStream]([ExtResource("5_esrh5"), ExtResource("6_j1mpa"), ExtResource("7_iamem"), ExtResource("8_8m2ec"), ExtResource("9_m80vg")])

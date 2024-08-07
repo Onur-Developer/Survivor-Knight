@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://crdayo6075pa1"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_xuhej"]
+[ext_resource type="Texture2D" uid="uid://b7ypqq0pqn2km" path="res://scenes/ability/drone_ability/drone.png" id="2_ntc36"]
+
+[resource]
+script = ExtResource("1_xuhej")
+id = "drone"
+name = "Laser Drone"
+max_quantity = 0
+description = "Created a laser drone."
+"ımage" = ExtResource("2_ntc36")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://di7ix0nfu8s1c"]
+
+[ext_resource type="Texture2D" uid="uid://dn1n6v1v4omo4" path="res://scenes/ability/poison_vial_ability/skull_face.png" id="1_5iflp"]
+
+[sub_resource type="Gradient" id="Gradient_gxygb"]
+offsets = PackedFloat32Array(0, 0.326437, 0.657471, 1)
+colors = PackedColorArray(0.156863, 0.223529, 0.0196078, 1, 0.345098, 0.533333, 0, 1, 0.596078, 0.815686, 0.137255, 1, 0.694118, 0.858824, 0.188235, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aa5k3"]
+gradient = SubResource("Gradient_gxygb")
+
+[sub_resource type="Curve" id="Curve_h2kbi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.497854, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_j3jg0"]
+curve = SubResource("Curve_h2kbi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gcscd"]
+emission_shape = 1
+emission_sphere_radius = 60.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 15.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 5.0
+linear_accel_max = 10.0
+damping_min = 3.0
+damping_max = 5.0
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_j3jg0")
+color_ramp = SubResource("GradientTexture1D_aa5k3")
+
+[node name="PoisonSkullGPUParticles" type="GPUParticles2D"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = 1
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_gcscd")
+texture = ExtResource("1_5iflp")
+lifetime = 0.7
+fixed_fps = 0
+interpolate = false

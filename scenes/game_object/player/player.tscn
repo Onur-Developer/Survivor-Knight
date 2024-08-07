@@ -1,0 +1,217 @@
+[gd_scene load_steps=28 format=3 uid="uid://cfthvy58rp8oe"]
+
+[ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_qrky4"]
+[ext_resource type="Texture2D" uid="uid://cboix1hn3wgpn" path="res://scenes/game_object/player/player.png" id="1_r5pyy"]
+[ext_resource type="PackedScene" uid="uid://c8ob2r445bsk0" path="res://scenes/component/health_component.tscn" id="2_naase"]
+[ext_resource type="Script" path="res://scenes/game_object/player/AbilityController.gd" id="3_14rgt"]
+[ext_resource type="PackedScene" uid="uid://mwksokm37r07" path="res://scenes/ability/axe_ability/axe_ability_controller.tscn" id="4_gianh"]
+[ext_resource type="PackedScene" uid="uid://dmgs7xicd4njp" path="res://scenes/ability/anvil_ability/anvil_ability_controller.tscn" id="6_50q45"]
+[ext_resource type="PackedScene" uid="uid://bcaflbb846mb2" path="res://scenes/ability/wooden_sword_ability/wooden_sword_ability_controller.tscn" id="7_8ehel"]
+[ext_resource type="PackedScene" uid="uid://tsyr0nlnlduj" path="res://scenes/ui/vignette_ui.tscn" id="7_xen8h"]
+[ext_resource type="PackedScene" uid="uid://dt0rgoshv8lg" path="res://scenes/component/random_auido_sounds_component.tscn" id="8_5w25e"]
+[ext_resource type="PackedScene" uid="uid://ck7n4u33yvw1q" path="res://scenes/ability/poison_vial_ability/poison_vial_ability_controller.tscn" id="8_ip408"]
+[ext_resource type="PackedScene" uid="uid://dko2pxem7ebby" path="res://scenes/ability/flame_turret_ability/flame_turret_controller.tscn" id="8_k8lab"]
+[ext_resource type="AudioStream" uid="uid://b0jpm3e0eqdvk" path="res://assets/sounds/impactMining_000.ogg" id="9_6apjs"]
+[ext_resource type="PackedScene" uid="uid://brhvrd8qg5cp1" path="res://scenes/ability/flying_turret/flying_turret_controller.tscn" id="9_qsf2r"]
+[ext_resource type="PackedScene" uid="uid://d23q7sjydjfmk" path="res://scenes/ability/drone_ability/drone_ability_controller.tscn" id="10_i5bu3"]
+[ext_resource type="AudioStream" uid="uid://00i65ummhlbp" path="res://assets/sounds/impactMining_001.ogg" id="10_iy3bc"]
+[ext_resource type="AudioStream" uid="uid://23f23gf43d2u" path="res://assets/sounds/impactMining_002.ogg" id="11_lgi0f"]
+[ext_resource type="PackedScene" uid="uid://853i4823m2hv" path="res://scenes/ability/sword_ability/sword_ability_controller.tscn" id="12_1kcn2"]
+[ext_resource type="PackedScene" uid="uid://di03pd1juctgb" path="res://scenes/ability/energy_shield_ability/energy_shield_ability_controller.tscn" id="12_5fofu"]
+[ext_resource type="AudioStream" uid="uid://dbewwi7vodfsm" path="res://assets/sounds/impactMining_003.ogg" id="12_t1e2q"]
+[ext_resource type="AudioStream" uid="uid://cmpco8cnq1tlo" path="res://assets/sounds/impactMining_004.ogg" id="13_ty4m5"]
+
+[sub_resource type="Animation" id="Animation_r6fa2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XLooking/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("XLooking/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("XLooking/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_loodd"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XLooking/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("XLooking/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.0, -0.523599, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("XLooking/Sprite2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_an65g"]
+_data = {
+"RESET": SubResource("Animation_r6fa2"),
+"walk": SubResource("Animation_loodd")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4o1x"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1oir2"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8yucl"]
+radius = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61j0l"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_qrky4")
+base_speed = 90.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_an65g")
+}
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_naase")]
+
+[node name="AbilityController" type="Node" parent="."]
+script = ExtResource("3_14rgt")
+axe_ability_contoller = ExtResource("4_gianh")
+anvil_ability_controller_scene = ExtResource("6_50q45")
+wooden_sword_ability_controller_scene = ExtResource("7_8ehel")
+poison_vial_controller_scene = ExtResource("8_ip408")
+flame_turret_controller_scene = ExtResource("8_k8lab")
+flying_turret_controller_scene = ExtResource("9_qsf2r")
+drone_controller_scene = ExtResource("10_i5bu3")
+energy_shield_scene = ExtResource("12_5fofu")
+
+[node name="SwordAbilityController" parent="AbilityController" instance=ExtResource("12_1kcn2")]
+
+[node name="PickupArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_u4o1x")
+
+[node name="XLooking" type="Node2D" parent="." groups=["x_looking"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="XLooking"]
+unique_name_in_owner = true
+texture = ExtResource("1_r5pyy")
+offset = Vector2(0, -8)
+
+[node name="PlayerHitBoxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBoxComponent"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_1oir2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8yucl")
+
+[node name="DamageIntervalTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 141.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 35)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_61j0l")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+text = "24/24"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VignetteUI" parent="." instance=ExtResource("7_xen8h")]
+
+[node name="RandomAuidoSoundsComponent" parent="." instance=ExtResource("8_5w25e")]
+sounds = Array[AudioStream]([ExtResource("9_6apjs"), ExtResource("10_iy3bc"), ExtResource("11_lgi0f"), ExtResource("12_t1e2q"), ExtResource("13_ty4m5")])

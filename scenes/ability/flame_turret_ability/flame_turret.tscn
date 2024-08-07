@@ -1,0 +1,170 @@
+[gd_scene load_steps=23 format=3 uid="uid://b5lr5e2c3mxoo"]
+
+[ext_resource type="Texture2D" uid="uid://cxildv4hkd454" path="res://scenes/ability/flame_turret_ability/stick.png" id="1_6teyc"]
+[ext_resource type="Script" path="res://scenes/ability/flame_turret_ability/FlameTurretStickSprite.gd" id="2_08cbn"]
+[ext_resource type="Texture2D" uid="uid://go4vj8obgl6" path="res://scenes/ability/flame_turret_ability/flame_turret.png" id="3_mggew"]
+[ext_resource type="Texture2D" uid="uid://b7dcwcvafboff" path="res://scenes/ability/flame_turret_ability/fire.png" id="4_ysakv"]
+[ext_resource type="PackedScene" uid="uid://c5mt23ottkc5y" path="res://scenes/component/hit_box_component.tscn" id="5_y2qb7"]
+[ext_resource type="PackedScene" uid="uid://dt0rgoshv8lg" path="res://scenes/component/random_auido_sounds_component.tscn" id="6_nw5sm"]
+[ext_resource type="AudioStream" uid="uid://c154ekc6h61ak" path="res://assets/sounds/flamethrower_continue2.ogg" id="10_lh0fo"]
+[ext_resource type="PackedScene" uid="uid://bxia7n8neqpen" path="res://prototype/colorful_signal/colorful_signal.tscn" id="10_w18cy"]
+[ext_resource type="AudioStream" uid="uid://bvinb7qi7p53" path="res://assets/sounds/flamethrower_continue3.ogg" id="11_2dwqp"]
+[ext_resource type="AudioStream" uid="uid://cvgw4cn05dvr" path="res://assets/sounds/flame_turret_alarm1.ogg" id="11_f6buh"]
+[ext_resource type="AudioStream" uid="uid://dkyc3084x2pll" path="res://assets/sounds/flamethrower_continue.ogg" id="12_npovq"]
+[ext_resource type="AudioStream" uid="uid://but03ej7ut03m" path="res://assets/sounds/flame_turret_alarm2.ogg" id="12_x067q"]
+
+[sub_resource type="Gradient" id="Gradient_qqtu2"]
+offsets = PackedFloat32Array(0, 0.221154, 0.442308, 0.63141, 0.801282, 1)
+colors = PackedColorArray(0.501961, 0.0666667, 0, 1, 0.713726, 0.133333, 0.0117647, 1, 0.843137, 0.207843, 0.00784314, 1, 0.988235, 0.392157, 0, 1, 1, 0.458824, 0, 1, 0.98, 0.75, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lf1gf"]
+gradient = SubResource("Gradient_qqtu2")
+
+[sub_resource type="Curve" id="Curve_nvc2a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0957747, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2v62q"]
+curve = SubResource("Curve_nvc2a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2fces"]
+particle_flag_disable_z = true
+direction = Vector3(10, 0, 0)
+spread = 5.0
+flatness = 0.5
+gravity = Vector3(10, 0, 0)
+initial_velocity_min = 125.0
+initial_velocity_max = 125.0
+angular_velocity_min = 45.0
+angular_velocity_max = 45.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 15.0
+damping_max = 15.0
+angle_min = -90.0
+angle_max = -90.0
+scale_min = 0.1
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_2v62q")
+color_ramp = SubResource("GradientTexture1D_lf1gf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqpax"]
+size = Vector2(117, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwvq3"]
+radius = 125.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu3d4"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2kjc"]
+bg_color = Color(0.6, 0.6, 0.87451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uj5yc"]
+
+[node name="FlameTurret" type="StaticBody2D"]
+collision_layer = 33
+script = ExtResource("2_08cbn")
+
+[node name="FlameTurretStickSprite" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_6teyc")
+
+[node name="FlameTurretHeadSprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -5)
+rotation = -0.0223993
+texture = ExtResource("3_mggew")
+flip_h = true
+
+[node name="FireParticles" type="GPUParticles2D" parent="FlameTurretHeadSprite"]
+unique_name_in_owner = true
+modulate = Color(2, 2, 2, 1)
+z_index = 1
+position = Vector2(11, 0.5)
+rotation = -0.036591
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_2fces")
+texture = ExtResource("4_ysakv")
+speed_scale = 1.5
+fixed_fps = 0
+interpolate = false
+local_coords = true
+
+[node name="HitBoxComponent" parent="FlameTurretHeadSprite/FireParticles" instance=ExtResource("5_y2qb7")]
+base_damage = 2.0
+
+[node name="FireCollisionShape" type="CollisionShape2D" parent="FlameTurretHeadSprite/FireParticles/HitBoxComponent"]
+unique_name_in_owner = true
+position = Vector2(62.5, 0.5)
+shape = SubResource("RectangleShape2D_wqpax")
+disabled = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="DetectionCollisionShape" type="CollisionShape2D" parent="DetectionArea"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_qwvq3")
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+offset_left = -23.0
+offset_top = -33.0
+offset_right = 27.0
+offset_bottom = -23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_nu3d4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u2kjc")
+value = 50.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_uj5yc")
+
+[node name="StartAudioSoundsComponent" parent="." instance=ExtResource("6_nw5sm")]
+volume_db = 5.0
+max_distance = 200.0
+sounds = Array[AudioStream]([ExtResource("10_lh0fo"), ExtResource("11_2dwqp"), ExtResource("12_npovq")])
+
+[node name="ColorfulSignal" parent="." instance=ExtResource("10_w18cy")]
+custom_minimum_size = Vector2(100, 100)
+offset_left = -141.0
+offset_top = -139.0
+offset_right = 137.0
+offset_bottom = 137.0
+
+[node name="FlameTurretAlarm1" parent="." instance=ExtResource("6_nw5sm")]
+volume_db = -5.0
+max_distance = 200.0
+sounds = Array[AudioStream]([ExtResource("11_f6buh")])
+pitch_change = false
+
+[node name="FlameTurretAlarm2" parent="." instance=ExtResource("6_nw5sm")]
+volume_db = -5.0
+max_distance = 200.0
+sounds = Array[AudioStream]([ExtResource("12_x067q")])
+pitch_change = false
+
+[node name="AlarmTimer" type="Timer" parent="."]
+autostart = true

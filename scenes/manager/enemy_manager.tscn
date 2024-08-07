@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp6qxkicxlj2e"]
+
+[ext_resource type="Script" path="res://scenes/manager/enemy_manager.gd" id="1_o1663"]
+[ext_resource type="PackedScene" uid="uid://b8c7sha2x1xfe" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_2it8q"]
+[ext_resource type="PackedScene" uid="uid://du1ffsnweowyc" path="res://scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="2_tgk4v"]
+[ext_resource type="PackedScene" uid="uid://corr078sbmww5" path="res://scenes/game_object/bat_enemy/bat_enemy.tscn" id="4_nw0av"]
+
+[node name="EnemyManager" type="Node"]
+script = ExtResource("1_o1663")
+enemies = Array[PackedScene]([ExtResource("2_2it8q"), ExtResource("2_tgk4v"), ExtResource("4_nw0av")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="NewEnemyTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
